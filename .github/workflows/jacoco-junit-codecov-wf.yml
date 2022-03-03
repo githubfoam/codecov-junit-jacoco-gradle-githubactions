@@ -41,6 +41,6 @@ jobs:
       run: |
             cd app7 && chmod +x gradlew
             ./gradlew check
-            ./gradlew codeCoverageRepor
+            ./gradlew codeCoverageReport
     - name: "upload codecov"
       run: bash <(curl -s https://codecov.io/bash)                     
