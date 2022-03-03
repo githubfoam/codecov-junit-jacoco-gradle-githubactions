@@ -1,0 +1,46 @@
+name: "jacoco junit codecov Gradle CI"
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+      - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month  
+
+jobs:
+
+
+  
+  make-gradle-jacoco-junit-codecov:
+    name: "make build gradle w jacoco junit codecov"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: os fingerprinting
+      run: hostnamectl status    
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: "make build gradle w jacoco junit codecove"
+      run: sudo make deploy-app7            
+    - name: "upload codecov"
+      run: bash <(curl -s https://codecov.io/bash)  
+
+  gradle-jacoco-junit-codecov:
+  name: "build gradle w jacoco junit codecov"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: os fingerprinting
+      run: hostnamectl status    
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: "build gradle w jacoco junit codecov"        
+      run: |
+            cd app7 && chmod +x gradlew
+            ./gradlew check
+            ./gradlew codeCoverageRepor
+    - name: "upload codecov"
+      run: bash <(curl -s https://codecov.io/bash)                     
