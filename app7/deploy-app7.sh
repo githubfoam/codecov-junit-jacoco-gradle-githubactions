@@ -12,5 +12,5 @@ chmod +x gradlew
 
 ./gradlew assemble
 ./gradlew check
-
+# ./gradlew codeCoverageReport
 echo "=============================deploy gradle w jacoco coveralls============================================================="
