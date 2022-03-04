@@ -1,0 +1,22 @@
+{
+    "name": "codecov_jest",
+    "version": "1.0.0",
+    "description": "",
+    "main": "hello_world.js",
+    "scripts": {
+      "test": "jest --coverage"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/githubfoam/codecov-junit-jacoco-gradle-githubactions.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/githubfoam/codecov-junit-jacoco-gradle-githubactions.git/issues"
+    },
+    "homepage": "https://github.com/githubfoam/codecov-junit-jacoco-gradle-githubactions.git#readme",
+    "devDependencies": {
+      "jest": "^26.6.3"
+    }
+  }
