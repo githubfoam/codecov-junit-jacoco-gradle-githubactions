@@ -10,33 +10,33 @@ jobs:
 
 
   
-  # app9-javascript-jest-codecov:
-  #   name: "app9 javascript jest codecov"
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #         matrix:
-  #           node-version: [10.x, 12.x, 14.x]    
-  #   steps:
-  #   - name: "Checkout repository"
-  #     uses: actions/checkout@v2
-  #     with:
-  #       fetch-depth: 2 
-  #   - name: Set up Node.js ${{ matrix.node-version }}
-  #     uses: actions/setup-node@v1
-  #     with:
-  #       node-version: ${{ matrix.node-version }}     
-  #   - name: "os fingerprinting"
-  #     run: hostnamectl status    
-  #   - name: "Install dependencies tests coverage"
-  #     run: |
-  #       cd app9 
-  #       npm install #Install dependencies
-  #       npm run test #Run the tests
-  #       npm test -- --coverage #Run the tests coverage          
-  #   - name: "Upload coverage to Codecov"
-  #     uses: codecov/codecov-action@v1  
-  #     with:
-  #       token: ${{ secrets.CODECOV_TOKEN }}
+  app9-javascript-jest-codecov:
+    name: "app9 javascript jest codecov"
+    runs-on: ubuntu-latest
+    strategy:
+          matrix:
+            node-version: [10.x, 12.x, 14.x]    
+    steps:
+    - name: "Checkout repository"
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2 
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}     
+    - name: "os fingerprinting"
+      run: hostnamectl status    
+    - name: "Install dependencies tests coverage"
+      run: |
+        cd app9 
+        npm install #Install dependencies
+        npm run test #Run the tests
+        npm test -- --coverage #Run the tests coverage          
+    - name: "Upload coverage to Codecov"
+      uses: codecov/codecov-action@v1  
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
 
 app9-single-steps-javascript-jest-codecov:
     name: "app9 javascript jest codecov"
